@@ -1,0 +1,33 @@
+var Rectangle = Shape.extend({
+
+	constructor: function() {
+		this.base("Rectangle");
+	},
+
+	draw: function(canvas) {
+		canvas.strokeStyle = this.color;
+		canvas.lineWidth = this.lineWidth;
+		canvas.beginPath();
+		canvas.strokeRect(this.pos.x, this.pos.y, this.size.x, this.size.y);
+		canvas.closePath();
+		this.base(canvas);
+	},
+
+	drawing:function(point) {
+		this.size.x = point.x - this.pos.x;
+		this.size.y = point.y - this.pos.y;
+	},
+
+	added: function(canvas) {
+		if(this.size.x < 0) {
+			this.pos.x += this.size.x;
+			this.size.x = Math.abs(this.size.x);
+		}
+
+		if(this.size.y < 0) {
+			this.pos.y += this.size.y;
+			this.size.y = Math.abs(this.size.y);
+		}
+	},	
+
+});

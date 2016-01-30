@@ -15,7 +15,6 @@ var Circle = Shape.extend({
 		this.base(canvas);
 	},
 
-
 	drawing:function(point) {
 		this.radius = Math.sqrt(Math.pow(point.x - this.pos.x, 2) + Math.pow(point.y - this.pos.y, 2));
 	},

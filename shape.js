@@ -32,8 +32,5 @@ var Shape = Base.extend({
 	added: function(canvas) {
 
 	},
-
-	contains: function(point) {
-
-	},
+	
 });

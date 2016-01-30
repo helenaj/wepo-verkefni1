@@ -10,19 +10,17 @@ function App(canvasSelector) {
 		shape.pos = startPos;
 		shape.color = self.color;
 		shape.lineWidth = self.lineWidth;
-		
 		shape.startDrawing(startPos,self.canvasContext);
 		startPos.log('drawing start');
 
 	
-
 		self.saveActions = function(e) {
-     var imgData = document.getElementById("canvas").toDataURL("image/png");
-    //undoHistory.push(imgData);
-     var win = window.open(imgData, '_blank');
-  	 win.focus();
-    }
-	
+             var imgData = document.getElementById("canvas").toDataURL("image/png");
+             var win = window.open(imgData, '_blank');
+  				win.focus();
+        }
+
+         
 		var drawing = function(e) {
 			var pos = self.getEventPoint(e);
 			
@@ -38,9 +36,10 @@ function App(canvasSelector) {
 
 			shape.stopDrawing(pos,self.canvasContext);
 
-			pos.log('drawing stop')
+			pos.log('drawing stop');
 
 			self.shapes.push(shape);
+			self.notSelected.push(shape);
 			shape.added(self.canvasContext);
 
 			// Remove drawing and drawingStop functions from the mouse events
@@ -55,7 +54,7 @@ function App(canvasSelector) {
 		// Add drawing and drawingStop functions to the mousemove and mouseup events
 		self.canvas.on({
 			mousemove:drawing,
-			mouseup:drawingStop
+			mouseup:drawingStop,
 		});	
 
 	}
@@ -77,8 +76,6 @@ function App(canvasSelector) {
 		}
 	}
 
-	
-	
 	self.clear = function() {
 		self.shapes = [];
 		self.redraw();
@@ -94,7 +91,7 @@ function App(canvasSelector) {
 		self.shapes.push(self.deletedItems.pop());
 		self.redraw();
 	}
-	
+
 	self.setColor = function(color) {
 		self.color = color;
 	}
@@ -118,11 +115,15 @@ function App(canvasSelector) {
 		self.canvasContext = canvas.getContext("2d");
 		self.shapes = new Array();
 		self.deletedItems = new Array();
+		self.notSelected = new Array();
 		
 		// Set defaults
 		self.color = '#ff0000';	
 		self.lineWidth = 1;
-		// TODO: Set sensible defaults ...
+		self.shapeFactory = function() {
+			return new Pen(); }
+
+		
 	}
 	
 	self.init();
@@ -153,18 +154,11 @@ $(function() {
 
 	$('#clearbutton').click(function(){app.clear()});
 	$('#savebutton').click(function(){app.saveActions()});
-
 	$('#undobutton').click(function(){app.undo()});
-
 	$('#redobutton').click(function(){app.redo()});
-
-	/*    ekki viss með þetta =
-	$('#selectbutton').click(function(){app.select()});*/
-
+	$('#selectbutton').click(function(){app.select()});
 	$('#color').change(function(){app.setColor($(this).val())});
 	$('#lineWidth').change(function(){app.setLineWidth($(this).val())});
 	$('#font').change(function(){app.setFont($(this).val())});
-
-
-
+	
 });

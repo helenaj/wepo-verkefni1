@@ -31,4 +31,4 @@ var Circle = Shape.extend({
 		}
 	},	
 
-});
+})

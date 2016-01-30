@@ -39,7 +39,7 @@ function App(canvasSelector) {
 			pos.log('drawing stop');
 
 			self.shapes.push(shape);
-			self.notSelected.push(shape);
+			//self.notSelected.push(shape);
 			shape.added(self.canvasContext);
 
 			// Remove drawing and drawingStop functions from the mouse events
@@ -115,7 +115,7 @@ function App(canvasSelector) {
 		self.canvasContext = canvas.getContext("2d");
 		self.shapes = new Array();
 		self.deletedItems = new Array();
-		self.notSelected = new Array();
+		//self.notSelected = new Array();
 		
 		// Set defaults
 		self.color = '#ff0000';	

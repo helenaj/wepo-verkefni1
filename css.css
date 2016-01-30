@@ -1,0 +1,24 @@
+#div {
+	margin: 30; 
+	padding: 20;
+}
+
+#toolbar {
+	background-color:silver;
+}
+
+#canvas {
+	border:3px solid black;
+	display:block;
+}
+
+#textInput {
+  position: absolute;
+  display:none;
+  padding: 0;
+  margin: 0;
+}
+
+#textInput.active {
+	display: inline-block;
+}

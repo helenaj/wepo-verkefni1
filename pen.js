@@ -1,63 +1,37 @@
 var Pen = Shape.extend({
 
-	constructor: function(){
+	constructor: function() {
 		this.base("Pen");
-		canvas.lineWidth = this.lineWidth;
-	    canvas.lineJoin = 'round';
-	    canvas.lineCap = 'round';
-	    canvas.strokeStyle = this.color;
-	    var mouseX = this.pos.x;
-		var mouseY = this.pos.y;
-	    this.penPos = [];
-	    this.penPos.push({x:mouseX, y:mouseY});
-
-
-
+		this.path = new Array();
 	},
-
-
-	startDrawing: function(canvas) {
-		
-
-		
-
-	},
-
 	draw: function(canvas) {
-	 var pos1 = this.penPos[0];
-	var pt = {x:mouseX, y:mouseY};
-    this.penPos.push(pt);
-    
-    canvas.beginPath();
-    canvas.moveTo(pos1.x, pos1.y);
-    for(var i = 1; i < this.penPos.length; i++){
-      canvas.lineTo(this.penPos[i].x, this.penPos[i].y);
-    }
-    canvas.stroke();
-    canvas.closePath();
 
-        //mo
-    },
-                            
-		      
+		canvas.strokeStyle = this.color;
+		canvas.beginPath();
+		
+		canvas.moveTo(this.path[0].x + this.pos.x, this.path[0].y + this.pos.y);
 
+		for (var i = 1; i < this.path.length; i++) {
+			canvas.lineTo(this.path[i].x + this.pos.x, this.path[i].y + this.pos.y);
+		}
+		this.base(canvas);
+		canvas.stroke();	
 
-    
-	
+	},
 
 	drawing:function(point) {
-		
-
-	},
-
-	stopDrawing:function(point) {
-		
+		this.path.push(point.substract(this.pos));
 	},
 
 	added: function(canvas) {
-		
-
-},
+		var p = new Point(this.pos.x, this.pos.y);
+		this.path.push(Array);
+	},	
+	drawingStop:function(point) {
+		this.path.push(point.substract(this.pos));
+	},
+	drawingStart:function(point) {
+		this.path.push(point.substract(this.pos));
+	}
 
 });
-

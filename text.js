@@ -1,6 +1,6 @@
 var Text= Shape.extend({
 
-	constructor: function(mouse){
+	constructor: function(){
 		this.base("Text");
 
 		var textbox = document.getElementById("textInput");
@@ -18,8 +18,10 @@ var Text= Shape.extend({
 
 	draw: function(canvas) {
 
+		canvas.strokeStyle = this.color;
+		//canvas.lineWidth = this.lineWidth;
 	    canvas.fillStyle = this.color;
-	    canvas.font = this.lineWidth + "px " + this.font;
+	    canvas.lineWidth = this.lineWidth + "px " + this.font;
 	    canvas.fillText(this.Text, this.pos.x, this.pos.y);
 	    canvas.strokeText(this.Text, this.pos.x, this.pos.y);
 

@@ -1,13 +1,10 @@
 var Text= Shape.extend({
 
 	constructor: function(mouse){
-		this.base("text");
+		this.base(mouse,"text");
 
-		var textbox = document.getElementById("canvas").getContext('2d');
-		var text = textbox.measureText("foo");
-		text.width;
-		ctx.strokeText("Hello world", 10, 50);
-		/*textbox.classList.add("active");
+		var textbox = document.getElementById("textInput");
+		textbox.classList.add("active");
 		textbox.style.left = this.mouse.x+ "px";
         textbox.style.top =  (startY- (this.lineWidth/2)) + "px";
 		//textbox.classList.add("active");
@@ -16,7 +13,7 @@ var Text= Shape.extend({
         this.text = textbox.value;
       }.bind(this);
       	textbox.focus();
-		*/
+		
 	},
 
 	draw: function(canvas) {

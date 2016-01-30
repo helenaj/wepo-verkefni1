@@ -14,7 +14,6 @@ var Line = Shape.extend({
 	},
 
 	drawing:function(point) {
-		
 		this.size.x = point.x;// - this.pos.x;
 		this.size.y = point.y;// - this.pos.y;
 	

@@ -39,7 +39,6 @@ function App(canvasSelector) {
 			pos.log('drawing stop');
 
 			self.shapes.push(shape);
-			//self.notSelected.push(shape);
 			shape.added(self.canvasContext);
 
 			// Remove drawing and drawingStop functions from the mouse events
@@ -150,6 +149,9 @@ $(function() {
 
 	$('#penbutton').click(function(){app.shapeFactory = function() {
 		return new Pen();
+	};});
+	$('#textbutton').click(function(){app.shapeFactory = function() {
+		return new Text;
 	};});
 
 	$('#clearbutton').click(function(){app.clear()});

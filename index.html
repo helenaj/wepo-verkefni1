@@ -21,16 +21,11 @@
 	<div id="toolbar">
 
 		<input type="radio" name="tool" id="circlebutton" value="circle"></input><label for="circlebutton">Circle</label>
-		
-
-		<input type="radio" name="tool" id="rectanglebutton" value="rectangle"></input><label for="rectanglebutton">Rectangle</label>
-
-		<input type="radio" name="tool" id="linebutton" value="line"></input><label for="linebutton">Line</label>
+		<input type="radio" name="tool" id="rectanglebutton" value="rectangle"></input><label for="rectanglebutton">Rectangle</label><input type="radio" name="tool" id="linebutton" value="line"></input><label for="linebutton">Line</label>
 		<input type="radio" name="tool" id="textbutton" value="text"></input><label for="textbutton">Text</label>
-
 		<input type="radio" name="tool" id="penbutton" value="pen"></input><label for="penbutton">Pen</label>
+		<input type="color" name="color" id="color" value="#000000"></input>
 		
-		<input type="color" name="color" id="color" value="#ff0000"></input>
 		<select id="lineWidth"> 
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -42,11 +37,11 @@
 			<option value="8">8</option>
 			<option value="9">9</option>
 			<option value="10">10</option>
-		</select><label for="lineWidth">Linewidth</label>
+		</select>
 	</div>
+	
 	<div id="toolbar">	
 	<select id="font">
-
 		<optgroup style="font-family:arial">
 		    <option value="arial">Arial</option>
 		</optgroup>
@@ -62,25 +57,19 @@
 		<optgroup style="font-family:serif">
 			<option value="serif">Serif</option>
 		</optgroup>
-
 	</select>
+	
 		<input type="button" name="clearbutton" id="clearbutton" value="clear"></input>
 		<input type="button" name="undobutton" id="undobutton" value="undo"></input>
-
 		<input type="button" name="redobutton" id="redobutton" value="redo"></input>
 		<input type="button" name="savebutton" id="savebutton" value="save"></input>
 	</div>
 	
 	<canvas id="canvas" height="500" width="500"></canvas>
 	<div>
-		<input type="button" id="textInput"  > </input>
-
-		<button onclick="textInput()"></button>
-
-			<p id="textButton"></p>
+		<p id="textButton" style="display:none"></p>
 	</div>
 	
-	<!--<textarea rows="4" cols="50" id ="textInput"></textarea>-->
 	
 </body>
 </html>

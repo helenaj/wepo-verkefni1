@@ -9,6 +9,7 @@ var Text= Shape.extend({
 
 		canvas.strokeStyle = this.color;
 		canvas.lineWidth = this.lineWidth;
+		canvas.font = this.font;
 	    canvas.lineWidth = this.lineWidth + "px " + this.font;
 	    canvas.fillText(this.Text, this.pos.x, this.pos.y);
 	    canvas.strokeText(this.Text, this.pos.x, this.pos.y);

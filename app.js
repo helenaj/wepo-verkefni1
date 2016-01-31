@@ -15,9 +15,9 @@ function App(canvasSelector) {
 
 	
 		self.saveActions = function(e) {
-             var imgData = document.getElementById("canvas").toDataURL("image/png");
-             var win = window.open(imgData, '_blank');
-  				win.focus();
+	             var imgData = document.getElementById("canvas").toDataURL("image/png");
+	             var win = window.open(imgData, '_blank');
+	  	     win.focus();
         }
 
          
@@ -113,15 +113,12 @@ function App(canvasSelector) {
 		self.canvasContext = canvas.getContext("2d");
 		self.shapes = new Array();
 		self.deletedItems = new Array();
-		//self.notSelected = new Array();
 		
 		// Set defaults
-		self.color = '#ff0000';	
+		self.color = '#000000';	
 		self.lineWidth = 1;
 		self.shapeFactory = function() {
 			return new Pen(); }
-
-		
 	}
 	
 	self.init();

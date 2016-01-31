@@ -5,14 +5,17 @@ var Line = Shape.extend({
 	},
 
 	draw: function(canvas) {
+
+		canvas.strokeStyle = this.color;
+		canvas.lineWidth = this.lineWidth;
+		canvas.beginPath();
 		
-			canvas.strokeStyle = this.color;
-			canvas.lineWidth = this.lineWidth;
-			canvas.beginPath();
-			canvas.moveTo(this.pos.x, this.pos.y); //byrjun á línu
-			canvas.lineTo(this.size.x, this.size.y); //endir á línu
-			canvas.stroke();
-		
+		canvas.moveTo(this.pos.x, this.pos.y); //byrjun á línu
+		canvas.lineTo(this.size.x, this.size.y); //endir á línu
+		if(this.pos.x == this.size.x && this.pos.y == this.size.y)
+			return;
+		canvas.stroke();
+
 	},
 
 	drawing:function(point) {

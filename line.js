@@ -8,8 +8,11 @@ var Line = Shape.extend({
 		canvas.strokeStyle = this.color;
 		canvas.lineWidth = this.lineWidth;
 		canvas.beginPath();
+		
 		canvas.moveTo(this.pos.x, this.pos.y); //byrjun á línu
 		canvas.lineTo(this.size.x, this.size.y); //endir á línu
+		if(this.pos.x == this.size.x && this.pos.y == this.size.y)
+			return;
 		canvas.stroke();
 	},
 

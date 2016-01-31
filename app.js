@@ -81,7 +81,6 @@ function App(canvasSelector) {
 	}
 
 	self.undo = function() {
-
 		self.deletedItems.push(self.shapes.pop());
 		self.redraw();
 	}
